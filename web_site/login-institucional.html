@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso institucional - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../js/datos.js" defer></script>
+  <script src="../js/ui.js" defer></script>
+  <script src="../js/auth.js" defer></script>
+</head>
+<body class="auth-body" data-base="" data-modo="institucional">
+  <main class="auth-container">
+    <a class="auth-volver" href="bienvenida.html">← Volver</a>
+    <div class="auth-card auth-card--inst">
+      <div class="auth-header">
+        <img src="../images/LogoEcoAlerta.png" alt="Logotipo de EcoAlerta Urbana" width="60">
+        <h1>Acceso institucional</h1>
+        <p>Personal de fiscalización y coordinación municipal</p>
+      </div>
+
+      <div id="alert-message" class="alert-message hidden" role="alert"></div>
+
+      <!-- HU-003: credenciales corporativas -->
+      <form id="form-inst" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="inst-codigo">Código de trabajador o DNI <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="inst-codigo" inputmode="numeric" autocomplete="username" placeholder="Ej. 45678912" required aria-describedby="inst-codigo-error">
+          <span class="error-text" id="inst-codigo-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="inst-pass">Contraseña asignada <span class="required" aria-hidden="true">*</span></label>
+          <div class="ver-pass">
+            <input type="password" id="inst-pass" autocomplete="current-password" required aria-describedby="inst-pass-error">
+            <button type="button" data-ver="inst-pass" aria-label="Mostrar contraseña">Ver</button>
+          </div>
+          <span class="error-text" id="inst-pass-error"></span>
+        </div>
+        <a href="recuperar.html?inst=1" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        <button type="submit" class="boton boton-full">Ingresar</button>
+      </form>
+
+      <div class="demo-credenciales">
+        <strong>Cuentas de prueba:</strong> fiscalizador <strong>45678912</strong> · coordinador <strong>10203040</strong> · contraseña <strong>EcoAlerta2026</strong>.
+      </div>
+    </div>
+  </main>
+</body>
+</html>

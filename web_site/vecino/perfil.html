@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/perfil.js" defer></script>
+</head>
+<body class="app-body" data-base="../">
+  <main class="app-main" style="max-width:900px">
+    <div class="dos-col">
+      <!-- HU-002: perfil con distrito y junta vecinal -->
+      <section class="card" aria-labelledby="tit-datos">
+        <h2 class="seccion-titulo" id="tit-datos" style="margin-top:0">Mis datos</h2>
+        <form class="form" id="form-perfil" novalidate>
+          <div class="campo">
+            <label for="p-nombre">Nombre completo</label>
+            <input type="text" id="p-nombre" autocomplete="name" aria-describedby="err-nombre">
+            <span class="error-app" id="err-nombre"></span>
+          </div>
+          <div class="campo">
+            <label for="p-correo">Correo electrónico</label>
+            <input type="email" id="p-correo" readonly aria-describedby="ayuda-correo">
+            <p class="ayuda" id="ayuda-correo">El correo es tu usuario y no se puede cambiar.</p>
+          </div>
+          <div class="campo">
+            <label for="p-distrito">Distrito</label>
+            <select id="p-distrito"><option>Chorrillos</option></select>
+          </div>
+          <div class="campo">
+            <label for="p-sector">Sector o junta vecinal</label>
+            <select id="p-sector" aria-describedby="ayuda-sector err-sector"></select>
+            <p class="ayuda" id="ayuda-sector">Lo usamos para mostrarte los reportes y jornadas de tu zona.</p>
+            <span class="error-app" id="err-sector"></span>
+          </div>
+          <label class="chip-op" style="display:flex"><input type="checkbox" id="p-notif"><span>Recibir notificaciones cuando mis reportes cambien de estado</span></label>
+          <button type="submit" class="btn btn-primario">Guardar cambios</button>
+        </form>
+      </section>
+
+      <div>
+        <!-- HU-047: avisos de jornadas -->
+        <section class="card" aria-labelledby="tit-jornadas">
+          <h2 class="seccion-titulo" id="tit-jornadas" style="margin-top:0">Jornadas de limpieza</h2>
+          <p class="ayuda">Suscríbete y te avisaremos unos días antes.</p>
+          <div class="lista" id="jornadas" style="margin-top:12px"></div>
+        </section>
+        <section class="card" aria-labelledby="tit-cuenta">
+          <h2 class="seccion-titulo" id="tit-cuenta" style="margin-top:0">Cuenta</h2>
+          <p class="ayuda" id="rol-actual"></p>
+          <div class="acciones">
+            <button type="button" class="btn btn-secundario" id="btn-permiso">Permitir avisos en este dispositivo</button>
+            <button type="button" class="btn btn-peligro" id="btn-cerrar">Cerrar sesión</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

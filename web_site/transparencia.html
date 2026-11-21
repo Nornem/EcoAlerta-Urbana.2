@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transparencia - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../js/datos.js" defer></script>
+  <script src="../js/ui.js" defer></script>
+  <script src="../js/transparencia.js" defer></script>
+</head>
+<body class="app-body" data-base="">
+  <header class="cabecera">
+    <div class="barra contenedor">
+      <a href="index.html" class="marca"><img src="../images/LogoEcoAlerta.png" alt="" width="46"><strong>EcoAlerta Urbana</strong></a>
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="vecino/mapa.html">Mapa comunitario</a></li>
+          <li><a href="transparencia.html" aria-current="page">Transparencia</a></li>
+          <li><a href="bienvenida.html">Ingresar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HU-046 portal público sin registro · HU-044 tiempo promedio de respuesta municipal -->
+  <main class="app-main" style="max-width:1160px">
+    <h1 class="pagina-titulo" style="font-size:clamp(1.6rem,3vw,2.3rem);margin-top:12px">Transparencia de la limpieza en Chorrillos</h1>
+    <p class="pagina-sub">Datos públicos y sin registro: cuánto tarda la municipalidad en atender los reportes de los vecinos.</p>
+    <div class="kpis" id="kpis"></div>
+
+    <div class="dos-col" style="margin-top:16px">
+      <section class="card" aria-labelledby="tit-graf">
+        <h2 class="seccion-titulo" id="tit-graf" style="margin-top:0">Tiempo promedio de respuesta por mes</h2>
+        <p class="ayuda">Horas desde que el vecino reporta hasta que la zona queda limpia.</p>
+        <div class="barras" id="barras" role="img" aria-label="Gráfico de barras del tiempo promedio de respuesta por mes"></div>
+        <div class="barras-etq" id="barras-etq" aria-hidden="true"></div>
+        <table class="sr-only" id="tabla-graf"><caption>Tiempo promedio de respuesta por mes</caption><thead><tr><th>Mes</th><th>Horas</th></tr></thead><tbody></tbody></table>
+      </section>
+      <section class="card" aria-labelledby="tit-zonas">
+        <h2 class="seccion-titulo" id="tit-zonas" style="margin-top:0">Sectores con más reportes abiertos</h2>
+        <ul class="ranking" id="ranking" style="margin-top:12px"></ul>
+        <a class="btn btn-secundario btn-bloque" href="vecino/mapa.html" style="margin-top:16px">Ver los puntos en el mapa comunitario</a>
+      </section>
+    </div>
+    <p class="nota-demo">Prototipo académico: los meses anteriores son datos de demostración; el mes actual se calcula con los reportes registrados en la plataforma.</p>
+  </main>
+  <footer><p>&copy; 2026 EcoAlerta Urbana - Alertica Group.</p></footer>
+</body>
+</html>

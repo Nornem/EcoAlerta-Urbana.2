@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis reportes - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/mis-reportes.js" defer></script>
+</head>
+<body class="app-body" data-base="../">
+  <!-- HU-014: lista de reportes con su estado -->
+  <main class="app-main">
+    <div class="filtros-barra" id="pestanas" role="tablist" aria-label="Qué reportes ver"></div>
+    <p class="pagina-sub" id="resumen" style="margin-top:12px"></p>
+    <div class="filtros-barra" id="filtro-estado" style="margin-bottom:14px"></div>
+    <div class="lista lista--2" id="lista" aria-live="polite"></div>
+  </main>
+</body>
+</html>

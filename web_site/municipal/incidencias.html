@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incidencias - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/incidencias.js" defer></script>
+</head>
+<body class="app-body panel-body" data-base="../">
+  <!-- Coordinador: HU-025 orden automático por urgencia, HU-026 asignación a cuadrilla -->
+  <main class="panel-principal">
+    <div class="panel-cabecera"></div>
+    <div class="filtros-barra" id="tabs" role="radiogroup" aria-label="Estado de las incidencias"></div>
+    <div class="filtros-barra" style="margin-top:12px">
+      <div class="campo" style="min-width:200px"><label for="f-cat">Tipo</label><select id="f-cat"></select></div>
+      <div class="campo" style="min-width:220px"><label for="f-sector">Sector</label><select id="f-sector"></select></div>
+    </div>
+    <div class="panel-grid panel-grid--asignar">
+      <div class="tabla-envoltura">
+        <table class="tabla" aria-describedby="nota-prio">
+          <thead><tr><th scope="col">Prioridad</th><th scope="col">Ticket</th><th scope="col">Ubicación</th><th scope="col">Tipo</th><th scope="col">Tiempo</th><th scope="col">Apoyos</th><th scope="col">Cuadrilla</th><th scope="col"><span class="sr-only">Acción</span></th></tr></thead>
+          <tbody id="filas"></tbody>
+        </table>
+      </div>
+      <section class="card panel-asignar" id="panel-asignar" aria-labelledby="tit-asig">
+        <h2 class="seccion-titulo" id="tit-asig" style="margin-top:0">Asignar cuadrilla</h2>
+        <div id="asig-vacio" class="vacio">Elige una incidencia de la lista para asignarla.</div>
+        <form id="form-asignar" class="form" novalidate hidden>
+          <div id="asig-info" style="display:grid;gap:4px"></div>
+          <img id="asig-foto" class="ficha-foto" style="height:150px" alt="Foto del reporte" hidden>
+          <fieldset class="cuadrillas" id="cuadrillas" aria-describedby="err-cuadrilla"><legend class="etiqueta" style="font-weight:700;color:var(--verde-oscuro);margin-bottom:6px">Cuadrillas</legend></fieldset>
+          <span class="error-app" id="err-cuadrilla" style="display:block"></span>
+          <div class="campo"><label for="nota">Nota para la cuadrilla (opcional)</label><textarea id="nota" placeholder="Ej.: usar EPP, residuos tóxicos"></textarea></div>
+          <button type="submit" class="btn btn-primario">Confirmar asignación</button>
+          <p class="ayuda">Se notificará al jefe de cuadrilla y al vecino; el estado pasará a "En atención".</p>
+        </form>
+      </section>
+    </div>
+    <p class="ayuda" id="nota-prio" style="margin-top:12px">La prioridad (0 a 100) se calcula con la urgencia, las horas sin atención, los apoyos de los vecinos y el riesgo del residuo.</p>
+  </main>
+</body>
+</html>

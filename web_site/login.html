@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso vecinal - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../js/datos.js" defer></script>
+  <script src="../js/ui.js" defer></script>
+  <script src="../js/auth.js" defer></script>
+</head>
+<body class="auth-body" data-base="" data-modo="vecino">
+  <main class="auth-container">
+    <a class="auth-volver" href="bienvenida.html">← Volver</a>
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="../images/LogoEcoAlerta.png" alt="Logotipo de EcoAlerta Urbana" width="60">
+        <h1>EcoAlerta</h1>
+        <p>Acceso vecinal</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Ingresar o crear cuenta">
+        <button type="button" role="tab" id="tab-ingresar" aria-selected="true" aria-controls="panel-ingresar">Ingresar</button>
+        <button type="button" role="tab" id="tab-registro" aria-selected="false" aria-controls="panel-registro">Crear cuenta</button>
+      </div>
+
+      <div id="alert-message" class="alert-message hidden" role="alert"></div>
+
+      <!-- HU-001: inicio de sesión -->
+      <section id="panel-ingresar" role="tabpanel" aria-labelledby="tab-ingresar">
+        <form id="form-login" class="auth-form" novalidate>
+          <button type="button" class="btn-google" data-google>Continuar con Google</button>
+          <div class="divider"><span>O ingresa con tu correo</span></div>
+          <div class="form-group">
+            <label for="login-email">Correo electrónico <span class="required" aria-hidden="true">*</span></label>
+            <input type="email" id="login-email" autocomplete="email" placeholder="correo@ejemplo.com" required aria-describedby="login-email-error">
+            <span class="error-text" id="login-email-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="login-pass">Contraseña <span class="required" aria-hidden="true">*</span></label>
+            <div class="ver-pass">
+              <input type="password" id="login-pass" autocomplete="current-password" placeholder="Tu contraseña" required aria-describedby="login-pass-error">
+              <button type="button" data-ver="login-pass" aria-label="Mostrar contraseña">Ver</button>
+            </div>
+            <span class="error-text" id="login-pass-error"></span>
+          </div>
+          <a href="recuperar.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
+          <button type="submit" class="boton boton-full">Ingresar</button>
+        </form>
+      </section>
+
+      <!-- HU-001: registro -->
+      <section id="panel-registro" role="tabpanel" aria-labelledby="tab-registro" hidden>
+        <form id="form-registro" class="auth-form" novalidate>
+          <div class="form-group">
+            <label for="reg-nombre">Nombre completo <span class="required" aria-hidden="true">*</span></label>
+            <input type="text" id="reg-nombre" autocomplete="name" required aria-describedby="reg-nombre-error">
+            <span class="error-text" id="reg-nombre-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Correo electrónico <span class="required" aria-hidden="true">*</span></label>
+            <input type="email" id="reg-email" autocomplete="email" placeholder="correo@ejemplo.com" required aria-describedby="reg-email-error">
+            <span class="error-text" id="reg-email-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="reg-sector">Sector o junta vecinal <span class="required" aria-hidden="true">*</span></label>
+            <select id="reg-sector" required aria-describedby="reg-sector-error"></select>
+            <span class="error-text" id="reg-sector-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="reg-pass">Contraseña <span class="required" aria-hidden="true">*</span></label>
+            <div class="ver-pass">
+              <input type="password" id="reg-pass" autocomplete="new-password" placeholder="Mínimo 8 caracteres" required aria-describedby="reg-pass-error">
+              <button type="button" data-ver="reg-pass" aria-label="Mostrar contraseña">Ver</button>
+            </div>
+            <span class="error-text" id="reg-pass-error"></span>
+          </div>
+          <button type="submit" class="boton boton-full">Crear mi cuenta</button>
+        </form>
+      </section>
+
+      <div class="demo-credenciales">
+        <strong>Cuentas de prueba:</strong> vecino@ecoalerta.com y lider@ecoalerta.com, contraseña <strong>EcoAlerta2026</strong>.
+      </div>
+    </div>
+  </main>
+</body>
+</html>

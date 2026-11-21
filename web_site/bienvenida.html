@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenida - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../js/datos.js" defer></script>
+  <script src="../js/ui.js" defer></script>
+  <script src="../js/bienvenida.js" defer></script>
+</head>
+<body class="auth-body" data-base="">
+  <main class="auth-container auth-container--ancho">
+    <a class="auth-volver" href="index.html">← Volver a la página de inicio</a>
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="../images/LogoEcoAlerta.png" alt="Logotipo de EcoAlerta Urbana" width="60">
+        <h1>Te damos la bienvenida</h1>
+        <p class="auth-header__sub">Elige cómo deseas ingresar a EcoAlerta Urbana.</p>
+      </div>
+
+      <div class="roles">
+        <section class="rol-card" aria-labelledby="rol-vecino">
+          <span class="rol-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
+          <h2 id="rol-vecino">Soy vecino o líder comunal</h2>
+          <p>Reporta basura, consulta el mapa de tu distrito y haz seguimiento a tus reportes y a los de tu sector.</p>
+          <a class="boton" href="login.html">Ingresar como vecino</a>
+          <a class="boton-sec" href="login.html?tab=registro">Crear una cuenta</a>
+        </section>
+
+        <section class="rol-card rol-card--inst" aria-labelledby="rol-inst">
+          <span class="rol-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+          <h2 id="rol-inst">Acceso institucional</h2>
+          <p>Para fiscalizadores de campo y coordinadores municipales: asignaciones, mapa de calor y gestión de incidencias.</p>
+          <a class="boton" href="login-institucional.html">Ingresar con credenciales</a>
+        </section>
+      </div>
+
+      <p class="explorar"><a href="vecino/mapa.html">Explorar el mapa comunitario sin registrarme →</a></p>
+      <p class="explorar"><a href="transparencia.html">Ver el portal de transparencia →</a></p>
+    </div>
+  </main>
+</body>
+</html>

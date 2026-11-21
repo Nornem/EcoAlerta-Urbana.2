@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa comunitario - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/mapa.js" defer></script>
+</head>
+<body class="app-body" data-base="../">
+  <!-- HU-016: mapa público de focos de basura (también sin iniciar sesión, HU-046) -->
+  <main class="app-main app-main--ancho">
+    <div class="mapa-pagina" id="mapa-pagina">
+      <div class="mapa-lienzo" id="mapa"></div>
+      <div class="mapa-flotante mapa-resumen">
+        <p id="resumen" aria-live="polite">Cargando reportes…</p>
+        <button type="button" class="btn btn-sm btn-secundario" id="btn-filtros" style="background:#fff">Filtros</button>
+      </div>
+      <div class="mapa-flotante mapa-leyenda" aria-label="Leyenda del mapa">
+        <span><i style="background:#F2A900"></i> Recibido</span>
+        <span><i style="background:#1F5FA8"></i> En atención</span>
+        <span><i style="background:#1B6B4A"></i> Resuelto</span>
+      </div>
+      <a href="reportar.html" class="fab" id="fab-reportar" aria-label="Reportar basura" hidden data-icono="plus"></a>
+    </div>
+  </main>
+
+  <!-- HU-018: filtros -->
+  <div class="modal-overlay" id="modal-filtros" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tit-filtros">
+      <div class="modal__cab"><h2 id="tit-filtros">Filtrar el mapa</h2><button type="button" class="icon-btn" data-cerrar-modal aria-label="Cerrar">✕</button></div>
+      <form class="modal__cuerpo" id="form-filtros">
+        <fieldset class="chips" id="f-estado"><legend>Estado</legend></fieldset>
+        <fieldset class="chips" id="f-categoria"><legend>Tipo de residuo</legend></fieldset>
+        <fieldset class="chips" id="f-fecha"><legend>Fecha del reporte</legend></fieldset>
+        <fieldset class="chips" id="f-mios" hidden><legend>Mis reportes</legend><label class="chip-op"><input type="checkbox" name="mios" value="1"><span>Solo mis reportes</span></label><label class="chip-op"><input type="checkbox" name="sector" value="1"><span>Solo mi sector</span></label></fieldset>
+        <div class="acciones--fila">
+          <button type="button" class="btn btn-secundario" id="btn-limpiar">Limpiar</button>
+          <button type="submit" class="btn btn-primario" style="flex:1">Ver resultados</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

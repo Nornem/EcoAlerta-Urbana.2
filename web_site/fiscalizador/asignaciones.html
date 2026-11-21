@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis asignaciones - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/asignaciones.js" defer></script>
+</head>
+<body class="app-body" data-base="../">
+  <!-- Fiscalizador: HU-033 órdenes asignadas, HU-027 filtros, HU-034 navegación, HU-036 validación -->
+  <main class="app-main">
+    <p class="ayuda" id="cuadrilla"></p>
+    <div class="kpis" id="kpis" style="margin:10px 0 14px"></div>
+    <div class="filtros-barra" id="filtro-estado" role="radiogroup" aria-label="Filtrar por estado"></div>
+    <div class="campo" style="margin:12px 0;max-width:320px">
+      <label for="filtro-cat">Tipo de residuo</label>
+      <select id="filtro-cat"></select>
+    </div>
+    <div class="lista lista--2" id="lista" aria-live="polite"></div>
+  </main>
+
+  <!-- HU-036: verificación en sitio -->
+  <div class="modal-overlay" id="modal-validar" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tit-val">
+      <div class="modal__cab"><h2 id="tit-val">Verificar el reporte en sitio</h2><button type="button" class="icon-btn" data-cerrar-modal aria-label="Cerrar">✕</button></div>
+      <div class="modal__cuerpo">
+        <p id="val-info"></p>
+        <img id="val-foto" class="ficha-foto" alt="Foto enviada por el vecino" hidden>
+        <p class="ayuda">¿El punto de basura existe y coincide con la foto del vecino?</p>
+        <button type="button" class="btn btn-primario" id="btn-confirmar">Sí, el reporte es real</button>
+        <fieldset class="chips" id="motivos"><legend>Si no corresponde, indica el motivo para descartarlo</legend></fieldset>
+        <span class="error-app" id="err-motivo" style="display:block"></span>
+        <button type="button" class="btn btn-peligro" id="btn-descartar">Descartar reporte</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoAlerta Urbana - Reporta la basura de tu barrio</title>
+  <meta name="description" content="EcoAlerta Urbana conecta a vecinos y municipalidad para reportar y atender puntos críticos de basura.">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/landing.css">
+  <script src="../js/datos.js" defer></script>
+  <script src="../js/ui.js" defer></script>
+  <script src="../js/landing.js" defer></script>
+</head>
+<body data-base="">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera" id="inicio">
+    <div class="barra contenedor">
+      <a href="index.html" class="marca">
+        <img src="../images/LogoEcoAlerta.png" alt="" width="50">
+        <strong>EcoAlerta Urbana</strong>
+      </a>
+      <button type="button" class="menu-boton" id="menu-boton" aria-expanded="false" aria-controls="menu-principal">Menú</button>
+      <nav aria-label="Navegación principal">
+        <ul class="menu" id="menu-principal">
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="vecino/mapa.html">Mapa comunitario</a></li>
+          <li><a href="transparencia.html">Transparencia</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="bienvenida.html" class="menu-ingresar">Ingresar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero seccion">
+      <div class="contenedor dos-columnas">
+        <div>
+          <h1>Reporta, participa y mejora tu comunidad</h1>
+          <p>Una foto puede ser el inicio de un barrio más limpio. EcoAlerta Urbana conecta a vecinos con la municipalidad para priorizar la limpieza de puntos críticos de basura.</p>
+          <div class="hero-acciones">
+            <a href="login.html" class="boton">Reportar ahora</a>
+            <a href="vecino/mapa.html" class="boton-sec">Ver el mapa comunitario</a>
+          </div>
+          <ul class="hero-datos" id="hero-datos" aria-label="Datos de la plataforma"></ul>
+        </div>
+        <img class="foto" src="../images/ecoAlertaBanner.jpg" alt="Vecinos recogiendo basura en un parque">
+      </div>
+    </section>
+
+    <section id="nosotros" class="seccion fondo-gris">
+      <div class="contenedor">
+        <h2>Quiénes somos</h2>
+        <p class="centrado">Somos <strong>Alertica Group</strong>, un equipo de estudiantes de Ingeniería de Software e Ingeniería de Sistemas de Información de la UPC enfocado en tecnología cívica.</p>
+        <p class="centrado">Nuestra misión es que cada vecino pueda reportar un punto de basura en menos de un minuto y que la municipalidad cuente con datos claros para atenderlo, promoviendo ciudades limpias y sostenibles (ODS 11).</p>
+      </div>
+    </section>
+
+    <section id="servicios" class="seccion">
+      <div class="contenedor">
+        <h2>Servicios</h2>
+        <div class="tarjetas tarjetas--4">
+          <article class="tarjeta"><h3>Reporte rápido</h3><p>Foto, ubicación por GPS y tipo de residuo: el reporte llega en menos de un minuto.</p></article>
+          <article class="tarjeta"><h3>Mapa comunitario</h3><p>Consulta los puntos de tu distrito, súmate a los reportes y compártelos por WhatsApp.</p></article>
+          <article class="tarjeta"><h3>Panel municipal</h3><p>Mapa de calor, prioridad automática y asignación de cuadrillas para atender primero lo urgente.</p></article>
+          <article class="tarjeta"><h3>Transparencia</h3><p>Tiempos de respuesta públicos para que la comunidad vea cómo se atienden sus reportes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="seccion fondo-gris">
+      <div class="contenedor">
+        <h2>Cómo funciona</h2>
+        <ol class="pasos-landing">
+          <li><span>1</span><h3>Reportas</h3><p>Tomas una foto del punto de basura; la ubicación se detecta sola.</p></li>
+          <li><span>2</span><h3>Se prioriza</h3><p>La municipalidad ve los reportes ordenados por urgencia, tiempo y apoyos de los vecinos.</p></li>
+          <li><span>3</span><h3>Se atiende</h3><p>Una cuadrilla verifica el punto y lo limpia, con fotos del antes y el después.</p></li>
+          <li><span>4</span><h3>Te avisamos</h3><p>Recibes una notificación cuando tu reporte queda resuelto.</p></li>
+        </ol>
+        <p class="centrado" style="margin-top:28px"><a class="boton" href="bienvenida.html">Empezar ahora</a></p>
+      </div>
+    </section>
+
+    <section id="testimonios" class="seccion">
+      <div class="contenedor">
+        <h2>Lo que nos contaron los vecinos</h2>
+        <p class="centrado">Ideas recogidas en las entrevistas a vecinos, líderes comunales y personal municipal que guiaron el diseño.</p>
+        <div class="tarjetas">
+          <blockquote><p>Los vecinos no saben a dónde reportar y, cuando lo hacen, no reciben respuesta.</p><footer>Vecinos entrevistados</footer></blockquote>
+          <blockquote><p>Los líderes coordinan todo por WhatsApp y necesitan evidencias ordenadas para sustentar sus reclamos.</p><footer>Líderes comunales</footer></blockquote>
+          <blockquote><p>La municipalidad necesita datos organizados para decidir a dónde enviar primero a las cuadrillas.</p><footer>Personal municipal</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion fondo-gris">
+      <div class="contenedor">
+        <h2>Contáctanos</h2>
+        <form class="formulario" id="form-contacto" novalidate>
+          <div class="campo">
+            <label for="c-nombre">Nombre</label>
+            <input type="text" id="c-nombre" autocomplete="name" placeholder="Tu nombre" aria-describedby="e-nombre">
+            <span class="error-app" id="e-nombre"></span>
+          </div>
+          <div class="campo">
+            <label for="c-email">Correo</label>
+            <input type="email" id="c-email" autocomplete="email" placeholder="correo@ejemplo.com" aria-describedby="e-email">
+            <span class="error-app" id="e-email"></span>
+          </div>
+          <div class="campo">
+            <label for="c-mensaje">Mensaje</label>
+            <textarea id="c-mensaje" placeholder="Escribe tu mensaje (mínimo 10 caracteres)" aria-describedby="e-mensaje"></textarea>
+            <span class="error-app" id="e-mensaje"></span>
+          </div>
+          <div id="contacto-ok" class="alerta alerta-ok" role="status" hidden></div>
+          <button type="submit" class="boton">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 EcoAlerta Urbana - Alertica Group. Proyecto académico del curso HCI for UX Design (UPC).</p>
+  </footer>
+</body>
+</html>

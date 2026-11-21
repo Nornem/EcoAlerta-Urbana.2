@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios y roles - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/usuarios.js" defer></script>
+</head>
+<body class="app-body panel-body" data-base="../">
+  <!-- HU-005: asignar roles para restringir el acceso a cada sección -->
+  <main class="panel-principal">
+    <div class="panel-cabecera"></div>
+    <div class="card" style="margin-bottom:16px">
+      <p class="ayuda">Cada rol solo puede entrar a sus pantallas: el vecino reporta y hace seguimiento, el líder comunal ve además las métricas de su sector, el fiscalizador atiende sus asignaciones y el coordinador gestiona el panel municipal.</p>
+    </div>
+    <div class="campo" style="max-width:360px;margin-bottom:12px"><label for="buscar">Buscar usuario</label><input type="search" id="buscar" placeholder="Nombre, correo o código"></div>
+    <div class="tabla-envoltura">
+      <table class="tabla">
+        <thead><tr><th scope="col">Nombre</th><th scope="col">Usuario</th><th scope="col">Rol</th><th scope="col">Sector o cuadrilla</th><th scope="col"><span class="sr-only">Acción</span></th></tr></thead>
+        <tbody id="filas"></tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

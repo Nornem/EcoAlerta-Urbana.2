@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de control - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/panel.js" defer></script>
+</head>
+<body class="app-body panel-body" data-base="../">
+  <!-- Coordinador: HU-024 mapa de calor, HU-030 alertas de más de 24 h -->
+  <main class="panel-principal">
+    <div class="panel-cabecera"></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="panel-grid panel-grid--mapa">
+      <section class="card" aria-labelledby="tit-calor">
+        <h2 class="seccion-titulo" id="tit-calor" style="margin-top:0">Mapa de calor de reportes abiertos</h2>
+        <fieldset class="chips" id="f-cat" style="margin:8px 0 12px"><legend class="ayuda" style="font-weight:600">Tipo de residuo</legend></fieldset>
+        <div class="mapa-caja" style="height:440px"><div class="mapa-lienzo" id="mapa-calor"></div>
+          <div class="mapa-flotante mapa-leyenda"><span>Concentración</span><span><i style="width:110px;border-radius:5px;background:linear-gradient(90deg,#F7E27A,#F2A900,#C0392B)"></i></span><span style="justify-content:space-between"><small>Baja</small><small>Alta</small></span></div>
+        </div>
+      </section>
+      <section class="card" aria-labelledby="tit-alertas">
+        <div class="banner-rojo" id="banner"></div>
+        <h2 class="seccion-titulo" id="tit-alertas">Sin atención por más de 24 h</h2>
+        <div class="alertas-lista" id="alertas"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

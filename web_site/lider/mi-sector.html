@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi sector - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/mi-sector.js" defer></script>
+</head>
+<body class="app-body" data-base="../">
+  <!-- Líder comunal: HU-043 indicadores del sector, HU-047 jornadas, HU-021 compartir resumen -->
+  <main class="app-main">
+    <p class="ayuda" id="junta"></p>
+    <h2 class="pagina-titulo" id="titulo-sector"></h2>
+    <div class="kpis" id="kpis" style="margin-top:12px"></div>
+
+    <div class="dos-col" style="margin-top:8px">
+      <section aria-labelledby="tit-zonas">
+        <h2 class="seccion-titulo" id="tit-zonas">Puntos que necesitan atención</h2>
+        <p class="ayuda">Ordenados por prioridad: urgencia, tiempo sin atención y apoyos de los vecinos.</p>
+        <div class="lista" id="zonas" style="margin-top:10px"></div>
+      </section>
+      <div>
+        <section aria-labelledby="tit-cat">
+          <h2 class="seccion-titulo" id="tit-cat">Tipos de residuo en el sector</h2>
+          <div class="card"><ul class="ranking" id="categorias"></ul></div>
+        </section>
+        <section aria-labelledby="tit-jornada">
+          <h2 class="seccion-titulo" id="tit-jornada">Próximas jornadas de limpieza</h2>
+          <div class="lista" id="jornadas"></div>
+        </section>
+        <div class="acciones">
+          <a class="btn btn-whatsapp" id="btn-resumen" target="_blank" rel="noopener">Compartir resumen por WhatsApp</a>
+          <p class="ayuda" style="text-align:center">Envía a tu grupo vecinal el estado de los reportes del sector.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

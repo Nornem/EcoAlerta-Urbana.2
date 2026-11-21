@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportar basura - EcoAlerta Urbana</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="../../js/datos.js" defer></script>
+  <script src="../../js/ui.js" defer></script>
+  <script src="../../js/reportar.js" defer></script>
+</head>
+<body class="app-body" data-base="../">
+  <main class="app-main" style="max-width:720px">
+    <p class="pagina-sub">Completa 3 datos y envía. Toma menos de un minuto.</p>
+
+    <form class="form" id="form-reporte" novalidate>
+      <!-- HU-007: foto -->
+      <div class="campo">
+        <span class="etiqueta" id="et-foto">Foto del punto de basura</span>
+        <div class="foto-area" id="area-foto" role="button" tabindex="0" aria-labelledby="et-foto" aria-describedby="error-foto">
+          <div class="foto-area__vacio" id="foto-vacio"><span data-icono="camera"></span>Toca para tomar o adjuntar una foto</div>
+          <img id="foto-preview" alt="Vista previa de la foto del punto de basura" hidden>
+          <span class="foto-area__cambiar" id="foto-cambiar" hidden>Cambiar foto</span>
+        </div>
+        <input type="file" accept="image/*" capture="environment" id="input-foto" hidden>
+        <span class="error-app" id="error-foto" aria-live="polite"></span>
+      </div>
+
+      <!-- HU-008 y HU-011: ubicación -->
+      <div class="campo">
+        <label for="ubicacion">Ubicación</label>
+        <div class="campo-icono" id="campo-ubicacion">
+          <span data-icono="map"></span>
+          <input type="text" id="ubicacion" placeholder="Detectando tu ubicación…" readonly aria-describedby="estado-ubicacion error-ubicacion">
+          <button type="button" class="btn-link" id="btn-ajustar">Ajustar</button>
+        </div>
+        <p class="ayuda" id="estado-ubicacion" aria-live="polite">Buscando señal GPS…</p>
+        <span class="error-app" id="error-ubicacion" aria-live="polite"></span>
+      </div>
+
+      <!-- HU-009: categoría -->
+      <div class="campo">
+        <fieldset class="chips" id="grupo-categoria" aria-describedby="error-categoria">
+          <legend>Tipo de residuo</legend>
+        </fieldset>
+        <span class="error-app" id="error-categoria" aria-live="polite"></span>
+      </div>
+
+      <!-- Urgencia -->
+      <div class="campo">
+        <span class="etiqueta" id="et-urg">Nivel de urgencia</span>
+        <div class="segmentado" role="radiogroup" aria-labelledby="et-urg">
+          <input type="radio" name="urgencia" id="urg-baja" value="baja"><label for="urg-baja">Baja</label>
+          <input type="radio" name="urgencia" id="urg-media" value="media" checked><label for="urg-media">Media</label>
+          <input type="radio" name="urgencia" id="urg-alta" value="alta"><label for="urg-alta">Alta</label>
+        </div>
+      </div>
+
+      <!-- HU-013: magnitud -->
+      <div class="campo">
+        <span class="etiqueta" id="et-mag">Cantidad aproximada</span>
+        <div class="tarjetas-op" role="radiogroup" aria-labelledby="et-mag">
+          <div class="tarjeta-op"><input type="radio" name="magnitud" id="mag-bolsa" value="bolsa" checked><label for="mag-bolsa"><i class="ico-mag" aria-hidden="true"></i><strong>Bolsa</strong><small>1 a 3 bolsas</small></label></div>
+          <div class="tarjeta-op"><input type="radio" name="magnitud" id="mag-contenedor" value="contenedor"><label for="mag-contenedor"><i class="ico-mag" aria-hidden="true"></i><strong>Contenedor</strong><small>Un montículo</small></label></div>
+          <div class="tarjeta-op"><input type="radio" name="magnitud" id="mag-camion" value="camion"><label for="mag-camion"><i class="ico-mag" aria-hidden="true"></i><strong>Camión</strong><small>Gran volumen</small></label></div>
+        </div>
+      </div>
+
+      <div id="alerta-reporte" class="alerta alerta-error" role="alert" hidden></div>
+      <button type="submit" class="btn btn-primario btn-bloque" id="btn-enviar">Enviar reporte</button>
+    </form>
+  </main>
+
+  <!-- HU-011: ajustar el punto en el mapa -->
+  <div class="modal-overlay" id="modal-ubicacion" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tit-ubic">
+      <div class="modal__cab"><h2 id="tit-ubic">Ajusta la ubicación</h2><button type="button" class="icon-btn" data-cerrar-modal aria-label="Cerrar">✕</button></div>
+      <div class="modal__cuerpo">
+        <p class="ayuda" id="ayuda-mapa">Toca el mapa o arrastra el pin hasta el punto exacto.</p>
+        <div class="mapa-caja" id="mapa-ajuste"></div>
+        <div class="campo" id="direccion-manual-campo" hidden>
+          <label for="direccion-manual">No se pudo cargar el mapa. Escribe la dirección o una referencia:</label>
+          <input type="text" id="direccion-manual" placeholder="Ej.: Av. Los Cedros 450, frente al parque">
+        </div>
+        <p class="ayuda" id="coords-ajuste"></p>
+        <div class="acciones--fila">
+          <button type="button" class="btn btn-secundario" id="btn-usar-gps">Usar mi GPS</button>
+          <button type="button" class="btn btn-primario" id="btn-confirmar-ubic" style="flex:1">Confirmar ubicación</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HU-010: confirmación -->
+  <div class="modal-overlay" id="modal-confirmacion" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tit-conf" style="text-align:center">
+      <div style="width:64px;height:64px;border-radius:50%;background:var(--verde-claro);color:var(--verde-medio);display:flex;align-items:center;justify-content:center;margin:0 auto 10px" data-icono="check"></div>
+      <h2 id="tit-conf" style="text-align:center">¡Reporte enviado!</h2>
+      <p id="texto-conf"></p>
+      <div class="card" id="resumen-conf" style="text-align:left;margin:14px 0;display:grid;gap:4px"></div>
+      <div class="acciones">
+        <a class="btn btn-primario" id="ir-ficha" href="#">Ver mi reporte</a>
+        <a class="btn btn-secundario" href="mis-reportes.html">Ir a mis reportes</a>
+        <button type="button" class="btn-link" id="otro-reporte">Hacer otro reporte</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
